@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR MOIN Ecommerce Demo - Online Shopping</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="amazon.css">
+</head>
+<body>
+
+    <header>
+    <!-- TOP NAV BELT -->
+    <div class="nav-belt">
+        <!-- Logo -->
+        <a href="#" class="nav-logo">MR MOIN<span>.Ecommerce Demo</span></a>
+
+        <!-- Deliver to Address -->
+        <div class="nav-address">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+                <span class="add-txt-1">Deliver to</span>
+                <span class="add-txt-2">Bangladesh</span>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="nav-search">
+            <select class="search-select">
+                <option>All</option>
+                <option>Electronics</option>
+                <option>Smart Home</option>
+                <option>Gaming PCs</option>
+                <option>Fashion</option>
+            </select>
+            <input type="text" class="search-input" placeholder="Search MR MOIN">
+            <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <!-- Right Side Nav Items -->
+        <div class="nav-right">
+            <!-- Language -->
+            <div class="nav-item">
+                <span class="nav-line-1"><i class="fa-solid fa-globe"></i> EN</span>
+            </div>
+
+            <!-- Account / Sign In -->
+            <div class="nav-item" onclick="alert('Redirecting to Sign In...')">
+                <span class="nav-line-1">Hello, sign in</span>
+                <span class="nav-line-2">Account & Lists</span>
+            </div>
+
+            <!-- Orders -->
+            <div class="nav-item">
+                <span class="nav-line-1">Returns</span>
+                <span class="nav-line-2">& Orders</span>
+            </div>
+
+            <!-- Cart -->
+            <div class="nav-cart" onclick="toggleCartModal()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+                <span class="cart-text">Cart</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUB NAV MENU -->
+    <div class="nav-sub">
+        <ul>
+            <li><a href="#"><i class="fa-solid fa-bars"></i> All</a></li>
+            <li><a href="#">Today's Deals</a></li>
+            <li><a href="#">Customer Service</a></li>
+            <li><a href="#">Registry</a></li>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="#">Sell</a></li>
+        </ul>
+    </div>
+</header>
+
+    <!-- HERO BANNER SECTION -->
+    <section class="hero-section">
+        <div class="hero-msg">
+            <p>You are on mr-moin.com. You can also shop on MR MOIN Bangladesh for millions of products with fast local delivery. <a href="#">Click here to go to moin.com.bd</a></p>
+        </div>
+    </section>
+
+    <!-- PRODUCT CARDS GRID (AMAZON STYLE) -->
+    <main class="main-content">
+        <div class="container grid-4">
+            
+            <!-- Box 1 -->
+            <div class="box-card">
+                <h2>Gaming PCs & Hardware</h2>
+                <div class="box-img-grid">
+                    <div class="sub-img"><img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=300" alt="GPU"><span>Graphics Cards</span></div>
+                    <div class="sub-img"><img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=300" alt="Mouse"><span>Gaming Mouse</span></div>
+                    <div class="sub-img"><img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=300" alt="Laptop"><span>Laptops</span></div>
+                    <div class="sub-img"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=300" alt="Camera"><span>Cameras</span></div>
+                </div>
+                <a href="#" class="box-link">See more gaming gear</a>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="box-card">
+                <h2>Smart Home Automation</h2>
+                <div class="single-box-img">
+                    <img src="https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=500" alt="Smart Home">
+                </div>
+                <a href="#" class="box-link">Shop smart home devices</a>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="box-card">
+                <h2>Electronics & Gadgets</h2>
+                <div class="box-img-grid">
+                    <div class="sub-img"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300" alt="Headphone"><span>Headphones</span></div>
+                    <div class="sub-img"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300" alt="Watch"><span>Smart Watches</span></div>
+                    <div class="sub-img"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=300" alt="Smartband"><span>Band</span></div>
+                    <div class="sub-img"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300" alt="Speaker"><span>Speakers</span></div>
+                </div>
+                <a href="#" class="box-link">Discover more electronics</a>
+            </div>
+
+            <!-- Box 4 -->
+            <div class="box-card">
+                <h2>Sign in for the best experience</h2>
+                <div class="signin-box-content">
+                    <button class="signin-btn" onclick="alert('Redirecting to MR MOIN Secure Login...')">Sign in securely</button>
+                    <p>New customer? <a href="#">Start here.</a></p>
+                </div>
+                <div class="promo-banner-box">
+                    <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=500" alt="Offer">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PRODUCT SLIDER / HORIZONTAL ROW -->
+        <div class="container product-row-section">
+            <h3>Inspired by your browsing history</h3>
+            <div class="horizontal-scroller">
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=300" alt="Product">
+                    <h4>DSLR Vlogging Camera</h4>
+                    <p class="price">৳৪৫,০০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('DSLR Camera', 45000)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300" alt="Product">
+                    <h4>Running Sneakers Shoes</h4>
+                    <p class="price">৳১,৯৫০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Running Shoes', 1950)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?w=300" alt="Product">
+                    <h4>RGB Mechanical Keyboard</h4>
+                    <p class="price">৳২,৮০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Mechanical Keyboard', 2800)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300" alt="Product">
+                    <h4>Wireless Noise Cancelling Headphones</h4>
+                    <p class="price">৳৬,৫০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Wireless Headphones', 6500)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=300" alt="T-Shirt">
+                    <h4>Casual Cotton Premium T-Shirt</h4>
+                    <p class="price">৳৭৫০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Cotton T-Shirt', 750)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=300" alt="Hoodie">
+                    <h4>Winter Fleece Stylish Hoodie</h4>
+                    <p class="price">৳১,৬০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Winter Hoodie', 1600)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: Smart Wearables & Smartwatches -->
+        <section class="container product-row-section">
+            <h3>Top Smart Wearables & Bands</h3>
+            <div class="horizontal-scroller">
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300" alt="Watch">
+                    <h4>Ultra Series 8 Smartwatch</h4>
+                    <p class="price">৳৩,৫০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Ultra Smartwatch', 3500)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=300" alt="Band">
+                    <h4>Fitness Tracker Smart Band</h4>
+                    <p class="price">৳১,৮০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Fitness Band', 1800)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=300" alt="Watch">
+                    <h4>Classic Leather Smart Watch</h4>
+                    <p class="price">৳৪,৫০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Leather Smart Watch', 4500)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=300" alt="Watch">
+                    <h4>AMOLED Display Sport Watch</h4>
+                    <p class="price">৳৫,২০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('AMOLED Sport Watch', 5200)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=300" alt="T-Shirt">
+                    <h4>Casual Cotton Premium T-Shirt</h4>
+                    <p class="price">৳৭৫০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Cotton T-Shirt', 750)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=300" alt="Hoodie">
+                    <h4>Winter Fleece Stylish Hoodie</h4>
+                    <p class="price">৳১,৬০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Winter Hoodie', 1600)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Professional Audio & Sound Systems -->
+        <section class="container product-row-section">
+            <h3>Professional Audio & Sound Systems</h3>
+            <div class="horizontal-scroller">
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300" alt="Headphone">
+                    <h4>Wireless Noise Cancelling Headphone</h4>
+                    <p class="price">৳৬,৫০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Wireless Headphone', 6500)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300" alt="Earbuds">
+                    <h4>TWS Bluetooth Wireless Earbuds</h4>
+                    <p class="price">৳২,১০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('TWS Earbuds', 2100)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?w=300" alt="Speaker">
+                    <h4>Portable Waterproof Bluetooth Speaker</h4>
+                    <p class="price">৳৩,৪০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Bluetooth Speaker', 3400)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?w=300" alt="Studio Mic">
+                    <h4>USB Condenser Studio Microphone</h4>
+                    <p class="price">৳৪,৮০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Studio Microphone', 4800)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=300" alt="T-Shirt">
+                    <h4>Casual Cotton Premium T-Shirt</h4>
+                    <p class="price">৳৭৫০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Cotton T-Shirt', 750)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=300" alt="Hoodie">
+                    <h4>Winter Fleece Stylish Hoodie</h4>
+                    <p class="price">৳১,৬০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Winter Hoodie', 1600)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: Laptops & Computing Essentials -->
+        <section class="container product-row-section">
+            <h3>Laptops & Computing Essentials</h3>
+            <div class="horizontal-scroller">
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=300" alt="Laptop">
+                    <h4>Ultra Slim Core i7 Business Laptop</h4>
+                    <p class="price">৳৬৫,০০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Core i7 Laptop', 65000)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?w=300" alt="Keyboard">
+                    <h4>RGB Mechanical Gaming Keyboard</h4>
+                    <p class="price">৳২,৮০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Mechanical Keyboard', 2800)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=300" alt="Mouse">
+                    <h4>Ergonomic Wireless Gaming Mouse</h4>
+                    <p class="price">৳১,৫০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Wireless Mouse', 1500)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=300" alt="Monitor">
+                    <h4>27-inch 165Hz Curved Gaming Monitor</h4>
+                    <p class="price">৳২২,৫০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Gaming Monitor', 22500)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=300" alt="T-Shirt">
+                    <h4>Casual Cotton Premium T-Shirt</h4>
+                    <p class="price">৳৭৫০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Cotton T-Shirt', 750)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=300" alt="Hoodie">
+                    <h4>Winter Fleece Stylish Hoodie</h4>
+                    <p class="price">৳১,৬০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Winter Hoodie', 1600)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: Trendy Fashion & Footwear -->
+        <section class="container product-row-section">
+            <h3>Trendy Fashion & Footwear</h3>
+            <div class="horizontal-scroller">
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300" alt="Shoes">
+                    <h4>Running Sports Sneakers Shoes</h4>
+                    <p class="price">৳১,৯৫০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Running Shoes', 1950)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=300" alt="Perfume">
+                    <h4>Luxury Eau De Parfum For Men</h4>
+                    <p class="price">৳১,২০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Luxury Perfume', 1200)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=300" alt="T-Shirt">
+                    <h4>Casual Cotton Premium T-Shirt</h4>
+                    <p class="price">৳৭৫০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Cotton T-Shirt', 750)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=300" alt="Hoodie">
+                    <h4>Winter Fleece Stylish Hoodie</h4>
+                    <p class="price">৳১,৬০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Winter Hoodie', 1600)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=300" alt="T-Shirt">
+                    <h4>Casual Cotton Premium T-Shirt</h4>
+                    <p class="price">৳৭৫০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Cotton T-Shirt', 750)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=300" alt="Hoodie">
+                    <h4>Winter Fleece Stylish Hoodie</h4>
+                    <p class="price">৳১,৬০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Winter Hoodie', 1600)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: Home Automation & Smart Gadgets -->
+        <section class="container product-row-section">
+            <h3>Home Automation & Smart Gadgets</h3>
+            <div class="horizontal-scroller">
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=300" alt="Smart Hub">
+                    <h4>Smart Home Voice Assistant Hub</h4>
+                    <p class="price">৳৫,৮০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Voice Assistant Hub', 5800)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=300" alt="Relay Module">
+                    <h4>ESP32 4-Channel WiFi Relay Module</h4>
+                    <p class="price">৳১,১০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('ESP32 Relay Module', 1100)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=300" alt="Smart Bulb">
+                    <h4>RGB Multicolor Smart LED Bulb</h4>
+                    <p class="price">৳৬,৫০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Smart LED Bulb', 650)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=300" alt="Security Camera">
+                    <h4>360° WiFi Smart Security Camera</h4>
+                    <p class="price">৳৩,২০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Smart Security Camera', 3200)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=300" alt="Smart Bulb">
+                    <h4>RGB Multicolor Smart LED Bulb</h4>
+                    <p class="price">৳৬,৫০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Smart LED Bulb', 650)">Add to Cart</button>
+                </div>
+                <div class="scroll-item">
+                    <img src="https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=300" alt="Security Camera">
+                    <h4>360° WiFi Smart Security Camera</h4>
+                    <p class="price">৳৩,২০০</p>
+                    <button class="add-cart-btn" onclick="addToCart('Smart Security Camera', 3200)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BACK TO TOP BUTTON -->
+    <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+        Back to top
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-cols container">
+            <div class="f-col">
+                <h4>Get to Know Us</h4>
+                <ul>
+                    <li><a href="#">Careers at MR MOIN</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Make Money with Us</h4>
+                <ul>
+                    <li><a href="#">Sell products on MR MOIN</a></li>
+                    <li><a href="#">Protect & Build Your Brand</a></li>
+                    <li><a href="#">Advertise Your Products</a></li>
+                    <li><a href="#">Global Selling</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>MR MOIN Payment Products</h4>
+                <ul>
+                    <li><a href="#">MR MOIN Business Card</a></li>
+                    <li><a href="#">Shop with Points</a></li>
+                    <li><a href="#">Reload Your Balance</a></li>
+                    <li><a href="#">Currency Converter</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Let Us Help You</h4>
+                <ul>
+                    <li><a href="#">Your Account</a></li>
+                    <li><a href="#">Your Orders</a></li>
+                    <li><a href="#">Shipping Rates & Policies</a></li>
+                    <li><a href="#">Returns & Replacements</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="f-logo">MR MOIN<span>.com</span></div>
+            <p>&copy; 2026, MR MOIN Ecommerce Demo Inc. or its affiliates.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="amazon.js"></script>
+</body>
+</html>

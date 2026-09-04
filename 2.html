@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client-Ready Dynamic Portfolio Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-code-merge"></i>
+            <span>CLIENT <span class="highlight">PORTAL</span></span>
+        </div>
+        <div class="header-note">
+            <i class="fa-solid fa-circle-info"></i> Client Demo Environment
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        
+        <!-- Left Side: Client Data Input Control Panel -->
+        <div class="control-panel">
+            <h2><i class="fa-solid fa-sliders"></i> Customize for Client</h2>
+            <p>Type client details below to instantly update the live preview on the right.</p>
+            
+            <div class="form-group">
+                <label>Client Name:</label>
+                <input type="text" id="inputName" value="Alex Morgan" onkeyup="updatePortfolio()">
+            </div>
+
+            <div class="form-group">
+                <label>Professional Title / Role:</label>
+                <input type="text" id="inputTitle" value="Full Stack Security Researcher" onkeyup="updatePortfolio()">
+            </div>
+
+            <div class="form-group">
+                <label>Profile Image URL:</label>
+                <input type="text" id="inputImg" value="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" onkeyup="updatePortfolio()">
+            </div>
+
+            <div class="form-group">
+                <label>Short Bio / Description:</label>
+                <textarea id="inputBio" rows="3" onkeyup="updatePortfolio()">Securing web architecture and building scalable high-performance backend platforms with absolute precision.</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>WhatsApp / Contact Link:</label>
+                <input type="text" id="inputContact" value="https://wa.me/8801800000000" onkeyup="updatePortfolio()">
+            </div>
+
+            <button class="export-btn" onclick="alert('Configuration ready to deploy for client!')"><i class="fa-solid fa-cloud-arrow-up"></i> Lock & Deploy Setup</button>
+        </div>
+
+        <!-- Right Side: Live Interactive Portfolio Preview -->
+        <div class="preview-panel">
+            <div class="browser-bar">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="url-text">https://client-portfolio-preview.xyz</span>
+            </div>
+
+            <div class="portfolio-canvas">
+                <div class="profile-card-sci">
+                    <div class="img-container">
+                        <img id="previewImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Client Image">
+                        <div class="status-badge"><i class="fa-solid fa-shield-halved"></i> Verified</div>
+                    </div>
+                    <div class="info-container">
+                        <h1 id="previewName">Alex Morgan</h1>
+                        <h3 id="previewTitle">Full Stack Security Researcher</h3>
+                        <p id="previewBio">Securing web architecture and building scalable high-performance backend platforms with absolute precision.</p>
+                        
+                        <div class="preview-actions">
+                            <a id="previewBtn" href="https://wa.me/8801800000000" target="_blank" class="connect-btn">
+                                <i class="fa-brands fa-whatsapp"></i> Initialize Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="2.js"></script>
+</body>
+</html>
