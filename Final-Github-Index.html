@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>আমার স্মার্ট হোম - Moin</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Hind Siliguri',sans-serif}
+body{background:#0a0a0a;color:#fff;min-height:100vh;padding:16px}
+.container{max-width:440px;margin:0 auto}
+.header{text-align:center;margin:16px 0 24px}
+.header h1{font-size:30px;background:linear-gradient(90deg,#facc15,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700}
+.header p{color:#666;margin-top:4px;font-size:13px}
+.card{background:#151515;border:1px solid #222;border-radius:22px;padding:18px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;transition:all 0.15s ease}
+.card:active{transform:scale(0.98)}
+.card.on{border-color:#facc15;background:#1e1c0a}
+.card.on.fan{border-color:#38bdf8;background:#0a1c22}
+.left{display:flex;align-items:center;gap:14px}
+.icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;background:#222;transition:0.15s}
+.card.on .icon{background:#facc15;transform:rotate(15deg)}
+.card.on.fan .icon{background:#38bdf8}
+.info h3{font-size:17px;font-weight:600}
+.info p{font-size:12px;color:#777;margin-top:2px}
+.switch{width:60px;height:32px;background:#2a2a2a;border-radius:20px;position:relative;cursor:pointer;transition:0.15s;flex-shrink:0}
+.switch.on{background:#facc15}
+.switch.on.fan{background:#38bdf8}
+.knob{width:26px;height:26px;background:#fff;border-radius:50%;position:absolute;top:3px;left:3px;transition:0.15s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 2px 6px rgba(0,0,0,0.3)}
+.switch.on .knob{left:31px}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.btn{padding:14px;border-radius:14px;border:none;font-weight:700;cursor:pointer;transition:0.15s}
+.btn:active{transform:scale(0.97)}
+.btn-all-on{background:#facc15;color:#000}
+.btn-all-off{background:#1e1e1e;color:#fff;border:1px solid #2a2a2a}
+.config{background:#111;border:1px solid #222;border-radius:16px;padding:14px;margin-top:18px}
+.config label{font-size:13px;color:#aaa}
+.config input{width:100%;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:10px;padding:10px 12px;color:#fff;margin-top:8px;outline:none}
+.config input:focus{border-color:#facc15}
+.status{margin-top:14px;text-align:center;color:#555;font-size:12px;padding:8px;background:#111;border-radius:10px}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>আমার স্মার্ট হোম</h1>
+    <p>WiFi: Moin • 3 লাইট + 1 ফ্যান • Instant Control</p>
+  </div>
+  <div id="devices"></div>
+  <div class="btns">
+    <button class="btn btn-all-on" onclick="all(true)">⚡ সব অন</button>
+    <button class="btn btn-all-off" onclick="all(false)">🌙 সব অফ</button>
+  </div>
+  <div class="config">
+    <label>🔧 ESP32 IP (Serial Monitor দেখে বসাও)</label>
+    <input id="ip" value="192.168.0.101" oninput="saveIP()">
+  </div>
+  <div class="status" id="status">✅ রেডি - ক্লিক করলেই সাথে সাথে কাজ করবে</div>
+</div>
+<script>
+const devices = [
+  {id:1, name:'লাইট ১', sub:'বেডরুম', type:'light', emoji:'💡'},
+  {id:2, name:'লাইট ২', sub:'ড্রয়িং রুম', type:'light', emoji:'💡'},
+  {id:3, name:'লাইট ৩', sub:'কিচেন', type:'light', emoji:'💡'},
+  {id:4, name:'ফ্যান', sub:'বেডরুম ফ্যান', type:'fan', emoji:'🌀'},
+];
+let states = JSON.parse(localStorage.getItem('relay_states') || '{"1":false,"2":false,"3":false,"4":false}');
+const savedIP = localStorage.getItem('esp_ip');
+if(savedIP) document.getElementById('ip').value = savedIP;
+
+function saveIP(){ localStorage.setItem('esp_ip', document.getElementById('ip').value); }
+
+function render(){
+  document.getElementById('devices').innerHTML = devices.map(d=>`
+    <div class="card ${states[d.id]?'on':''} ${d.type}">
+      <div class="left">
+        <div class="icon">${d.emoji}</div>
+        <div class="info"><h3>${d.name}</h3><p>${d.sub} • ${states[d.id]?'চালু আছে':'বন্ধ আছে'}</p></div>
+      </div>
+      <div class="switch ${states[d.id]?'on':''} ${d.type}" onclick="toggle(${d.id})"><div class="knob"></div></div>
+    </div>
+  `).join('');
+}
+function getIP(){ 
+  let v=document.getElementById('ip').value.trim();
+  if(!v) return null;
+  if(!v.startsWith('http')) v='http://'+v;
+  return v.replace(/\/$/,'');
+}
+// FAST TOGGLE - UI instant update
+function toggle(id){
+  const newState = !states[id];
+  states[id]=newState;
+  localStorage.setItem('relay_states', JSON.stringify(states));
+  render();
+  
+  const ip = getIP();
+  if(!ip){ document.getElementById('status').innerText='⚠️ IP দাও'; return; }
+  
+  document.getElementById('status').innerText = `${devices.find(x=>x.id==id).name} ${newState?'চালু হচ্ছে...':'বন্ধ হচ্ছে...'}`;
+  
+  // Background fetch - no waiting
+  fetch(`${ip}/relay${id}/${newState?'on':'off'}`, {method:'GET', cache:'no-store'})
+    .then(()=>{ document.getElementById('status').innerText=`✅ ${devices.find(x=>x.id==id).name} ${newState?'চালু':'বন্ধ'} হলো`; })
+    .catch(()=>{ document.getElementById('status').innerText=`⚠️ ESP32 পাওয়া যায়নি - একই WiFi তে আছো? (ডেমো চলছে)`; });
+}
+function all(on){
+  Object.keys(states).forEach(k=>states[k]=on);
+  localStorage.setItem('relay_states', JSON.stringify(states));
+  render();
+  const ip=getIP();
+  if(!ip) return;
+  [1,2,3,4].forEach(id=>{
+    fetch(`${ip}/relay${id}/${on?'on':'off'}`, {cache:'no-store'}).catch(()=>{});
+  });
+  document.getElementById('status').innerText= on ? '⚡ সব চালু হচ্ছে...' : '🌙 সব বন্ধ হচ্ছে...';
+}
+render();
+</script>
+</body>
+</html>
